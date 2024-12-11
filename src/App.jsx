@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import { Outlet } from "react-router-dom";
 
 function App() {
-  const [query, setQuery] = useState(""); // State lifted to App
+  const [query, setQuery] = useState("");
 
   return (
     <>
