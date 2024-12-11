@@ -5,6 +5,7 @@ const MovieCard = ({
   img,
   title,
   description,
+  type,
   releaseYear,
   votes,
   isFavorite,
@@ -14,6 +15,7 @@ const MovieCard = ({
 
   const year = new Date(releaseYear).getFullYear();
   const vote = Math.round(votes * 10) / 10;
+  const types = type === "tv" ? "TV" : "Movie";
 
   const handleToggle = () => {
     setAnimate(true);
@@ -25,9 +27,10 @@ const MovieCard = ({
     <div className="movie-card-container">
       <img className="movie-img" src={img} alt={title} />
       <div className="movie-card-details">
-        <h4 className="movie-title">{title}</h4>
+        <h3 className="movie-title">{title}</h3>
         <p className="movie-description">{description}</p>
-        <p className="movie-release-year">{year}</p>
+        <p className="media-type">{types}</p>
+        <p className="movie-release-year"> Release Year: {year}</p>
         <div className="star-container">
           <img className="star" src={star} alt="" />
           <p className="movie-average-vote">{vote}</p>

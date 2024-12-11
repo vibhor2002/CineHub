@@ -289,11 +289,25 @@ body {
 }
 
 .movie-description {
-  display: -webkit-box; /* Use WebKit for multiline truncation */
-  -webkit-line-clamp: 3; /* Limit to 3 lines */
-  -webkit-box-orient: vertical; /* Define vertical box orientation */
-  overflow: hidden; /* Hide overflowing text */
-  text-overflow: ellipsis; /* Add "..." at the end */
-  max-height: 4.5em; /* Approx. height for 3 lines (adjust based on font size and line-height) */
-  line-height: 1.5em; /* Adjust line spacing as needed */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 3.5em;
+}
+
+.movie-release-year {
+  color: #30120d;
+  font-weight: bolder;
+}
+
+.media-type {
+  font-family: "Numans", sans-serif;
+  color: #3f3d3d;
+  padding: 6px;
+  font-weight: 800;
+  border-radius: 8px;
+  background-color: #f5917f;
+  cursor: pointer;
 }

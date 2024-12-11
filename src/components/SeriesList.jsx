@@ -86,6 +86,8 @@ export default function SeriesList() {
               key={movie.id}
               img={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
               title={movie.original_name}
+              description={movie.overview}
+              type={"TV"}
               releaseYear={movie.first_air_date}
               votes={movie.vote_average}
               isFavorite={favorites.some((fav) => fav.id === movie.id)}

@@ -87,6 +87,7 @@ export default function MoviesList() {
               img={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
               title={movie.name || movie.title}
               description={movie.overview}
+              type={movie.media_type}
               releaseYear={movie.release_date || movie.first_air_date}
               votes={movie.vote_average}
               isFavorite={favorites.some((fav) => fav.id === movie.id)}
