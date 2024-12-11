@@ -21,7 +21,7 @@ export default function MoviesList() {
       try {
         const endpoint = query
           ? `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}&page=${currentPage}`
-          : `https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}&language=en-US&page=${currentPage}`;
+          : `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&page=${currentPage}`;
 
         const response = await fetch(endpoint);
         const data = await response.json();
@@ -76,7 +76,7 @@ export default function MoviesList() {
 
   return (
     <>
-      <h2 className="trending-h2 animate">Trending Now</h2>
+      <h2 className="trending-h2 animate">Top Rated</h2>
       {moviesData.length === 0 && !loading ? (
         <p className="no-movie">Your search did not have any matches.</p>
       ) : (
@@ -85,9 +85,8 @@ export default function MoviesList() {
             <MovieCard
               key={movie.id}
               img={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-              title={movie.name || movie.title}
-              description={movie.overview}
-              releaseYear={movie.release_date || movie.first_air_date}
+              title={movie.title}
+              releaseYear={movie.release_date}
               votes={movie.vote_average}
               isFavorite={favorites.some((fav) => fav.id === movie.id)}
               onToggleFavorite={() => toggleFavorite(movie)}

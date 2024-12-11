@@ -8,6 +8,7 @@ import Trending from "./components/Trending.jsx";
 import MoviesList from "./components/MoviesList.jsx";
 import SeriesList from "./components/SeriesList.jsx";
 import Favorites from "./components/Favorites.jsx";
+import TopRated from "./components/TopRated.jsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -20,6 +21,7 @@ root.render(
         <Route path="/movies" element={<MoviesList />} />
         <Route path="/series" element={<SeriesList />} />
         <Route path="/favorites" element={<Favorites />} />
+        <Route path="/top" element={<TopRated />} />
       </Route>
     </Routes>
   </BrowserRouter>

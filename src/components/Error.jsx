@@ -8,7 +8,9 @@ export default function Error({ error }) {
         <p style={styles.message}>
           {error ? error : "An unexpected error occurred."}
           You have visited an invalid URL. Please click the button below to go
-          back to the home page.
+          back to the home page. <br />
+          OR <br />
+          This page may be under construction. Please check back later.
         </p>
         <button
           style={styles.button}

@@ -4,6 +4,7 @@ import star from "../assets/star.png";
 const MovieCard = ({
   img,
   title,
+  description,
   releaseYear,
   votes,
   isFavorite,
@@ -25,6 +26,7 @@ const MovieCard = ({
       <img className="movie-img" src={img} alt={title} />
       <div className="movie-card-details">
         <h4 className="movie-title">{title}</h4>
+        <p className="movie-description">{description}</p>
         <p className="movie-release-year">{year}</p>
         <div className="star-container">
           <img className="star" src={star} alt="" />

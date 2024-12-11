@@ -26,12 +26,9 @@ export default function Header({ setQuery }) {
           <Link to="/">Home</Link>
           <Link to="/trending">Trending</Link>
           <Link to="/movies">Movies</Link>
-          <Link to="/series">Series</Link>
+          <Link to="/series">TV Shows</Link>
           <Link to="/favorites">Favorites</Link>
-        </div>
-
-        <div className="login">
-          <Link to="/signin">Sign In</Link>
+          <Link to="/top">Top Rated</Link>
         </div>
       </div>
     </header>
