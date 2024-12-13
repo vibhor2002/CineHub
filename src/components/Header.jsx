@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 
 export default function Header({ setQuery }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className="header">
       <div className="header-content">
@@ -19,16 +21,24 @@ export default function Header({ setQuery }) {
           </svg>
           <h1>CineHub</h1>
         </div>
-        <div className="search-bar">
-          <SearchBar setQuery={setQuery} />
+
+        <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-        <div className="menu">
+
+        <div className={`menu ${menuOpen ? "active" : ""}`}>
           <Link to="/">Home</Link>
           <Link to="/trending">Trending</Link>
           <Link to="/movies">Movies</Link>
           <Link to="/series">TV Shows</Link>
-          <Link to="/favorites">Favorites</Link>
           <Link to="/top">Top Rated</Link>
+          <Link to="/favorites">Favorites</Link>
+        </div>
+
+        <div className="search-bar">
+          <SearchBar setQuery={setQuery} />
         </div>
       </div>
     </header>
