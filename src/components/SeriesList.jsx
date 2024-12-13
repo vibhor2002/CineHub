@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import MovieCard from "./MovieCard";
-
-const apiKey = process.env.REACT_APP_API_KEY;
+import { fetchFromApi } from "../apiService";
 
 export default function SeriesList() {
   const { query } = useOutletContext();
@@ -19,12 +18,11 @@ export default function SeriesList() {
     const fetchMovies = async () => {
       setLoading(true);
       try {
-        const endpoint = query
-          ? `https://api.themoviedb.org/3/search/tv?api_key=${apiKey}&query=${query}&page=${currentPage}`
-          : `https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&page=${currentPage}`;
-
-        const response = await fetch(endpoint);
-        const data = await response.json();
+        const endpoint = query ? "search/tv" : "discover/tv";
+        const params = query
+          ? { query, page: currentPage }
+          : { page: currentPage };
+        const data = await fetchFromApi(endpoint, params);
         if (currentPage === 1) {
           setMoviesData(data.results);
         } else {
@@ -33,9 +31,10 @@ export default function SeriesList() {
             ...data.results,
           ]);
         }
-        setLoading(false);
       } catch (error) {
         console.error("Error fetching movies:", error);
+        setLoading(false);
+      } finally {
         setLoading(false);
       }
     };
